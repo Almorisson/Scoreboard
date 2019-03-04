@@ -33,26 +33,40 @@ Header.propTypes = {
 
 // Counter Class Component 
 var Counter = React.createClass({
-  propTypes: {},
+  propTypes: {
+    initialScore: React.PropTypes.number.isRequired, 
+  },
 
   getInitialState: function() {
     return {
-      score: 0,
+      score: this.props.initialScore,
     }
+  },
+
+  incrementScore: function() {
+    this.setState({
+      score: (this.state.score + 1),
+    });
+  }, 
+
+  decrementScore: function() {
+    this.setState({
+      score: (this.state.score - 1),
+    });
   },
 
   render: function() {
     return (
       <div className="counter">
-        <button className="counter-action decrement"> - </button>
+        <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
         <div className="counter-score"> {this.state.score} </div>
-        <button className="counter-action increment"> + </button>
+        <button className="counter-action increment" onClick={this.incrementScore}> + </button>
       </div>
     );
   }
 });
 
-// Counter Component
+// Counter functional Component
 // function Counter(props) {
 //   return (
 //     <div className="counter">
@@ -68,34 +82,34 @@ var Counter = React.createClass({
 // }
 
 // Player Class Component
-var Player = React.createClass({
-  render: function() {
-    return (
-      <div className="player">
-        <div className="player-name">
-          {this.props.name}
-        </div>
-        <div className="player-score">
-          <Counter />                  
-        </div>
-      </div>
-    )
-  }
-});
+// var Player = React.createClass({
+//   render: function() {
+//     return (
+//       <div className="player">
+//         <div className="player-name">
+//           {this.props.name}
+//         </div>
+//         <div className="player-score">
+//           <Counter initialScore={props.score}/>                  
+//         </div>
+//       </div>
+//     )
+//   }
+// });
 
-// // Player Component
-// function Player(props) {
-//   return (
-//     <div className="player">
-//       <div className="player-name">
-//         {props.name}
-//       </div>
-//       <div className="player-score">
-//         <Counter score={props.score}/>                  
-//       </div>
-//     </div>
-//   );
-// }
+// Player Component
+function Player(props) {
+  return (
+    <div className="player">
+      <div className="player-name">
+        {props.name}
+      </div>
+      <div className="player-score">
+        <Counter initialScore={props.score}/>                  
+      </div>
+    </div>
+  );
+}
 
 // Player PropTypes
 Player.propTypes = {
