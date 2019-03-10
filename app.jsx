@@ -1,3 +1,4 @@
+// Table of players
 var PLAYERS = [
   {
     name: "Morisson Son",
@@ -17,7 +18,6 @@ var PLAYERS = [
 ];
 
 // Header Component 
-
 function Header(props) {
   return (
     <div className="header">
@@ -31,7 +31,7 @@ Header.propTypes = {
   title: React.PropTypes.string.isRequired,
 }
 
-// Counter Class Component 
+// Counter Class Component with some PropTypes
 var Counter = React.createClass({
   propTypes: {
     initialScore: React.PropTypes.number.isRequired, 
