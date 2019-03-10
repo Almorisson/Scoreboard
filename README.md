@@ -26,4 +26,6 @@ An online board made for game players like my classmates who like to play everyt
 
 Author: Mor NDIAYE
 
-##### contact: ndiayemor164@gmail.com,ndiaye_c@etna-alternance.net
+##### contact: 
+ndiayemor164@gmail.com
+ndiaye_c@etna-alternance.net
